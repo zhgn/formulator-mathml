@@ -62,6 +62,7 @@ protected:
 
     RectFde m_indents;
     RealFde m_ls;
+    bool m_initialized;
 
 public:
     QFormulatorMainWindow( bool isEditMode = true, QWidget *parent = 0, Qt::WFlags flags = 0 );
@@ -70,6 +71,7 @@ public:
 protected:
     void initGui( bool isEditMode );
     void closeEvent(QCloseEvent *event);
+    void showEvent(QShowEvent *);
 
     void indents( RectFde& rect );
     void setIndents( RectFde rect );

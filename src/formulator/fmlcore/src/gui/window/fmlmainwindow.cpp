@@ -29,6 +29,7 @@
 
 QFormulatorMainWindow::QFormulatorMainWindow(bool isEditMode, QWidget *parent, Qt::WFlags flags)
     : QMainWindow( parent, flags )
+    , m_initialized(false)
 {
     QCoreApplication::setOrganizationName(__COMPANY_NAME__);
     QCoreApplication::setOrganizationDomain(__COMPANY_DOMAIN_);
@@ -44,12 +45,9 @@ QFormulatorMainWindow::QFormulatorMainWindow(bool isEditMode, QWidget *parent, Q
     m_configLastPage = 0;
     m_currentPath = "";
 
-//    setContextMenuPolicy(Qt::NoContextMenu);
+    setContextMenuPolicy(Qt::NoContextMenu);
 
     mdiArea = new QMdiArea;
-    mdiArea->setTabsClosable(false);
-    mdiArea->setDocumentMode(true);
-    mdiArea->setViewMode(QMdiArea::TabbedView);
     mdiArea->setHorizontalScrollBarPolicy( Qt::ScrollBarAsNeeded );
     mdiArea->setVerticalScrollBarPolicy( Qt::ScrollBarAsNeeded );
     setCentralWidget( mdiArea );
@@ -89,7 +87,6 @@ QFormulatorMainWindow::QFormulatorMainWindow(bool isEditMode, QWidget *parent, Q
     setUnifiedTitleAndToolBarOnMac(false);
     setWindowIcon(QIcon(":/images/fmlideico.ico"));
 
-    newFile();
     automaticCheckUpdate();
 }
 
@@ -640,12 +637,20 @@ QFormulatorViewWindow* QFormulatorMainWindow::createSubWindow()
 QFormulatorViewWindow* QFormulatorMainWindow::activeViewSubWindow()
 {
     QMdiSubWindow *activeSubWindow = mdiArea->activeSubWindow();
+    if(!activeSubWindow && !mdiArea->subWindowList().isEmpty())
+    {
+        mdiArea->setActiveSubWindow(mdiArea->subWindowList().first());
+    }
     return !activeSubWindow ? 0 : qobject_cast<QFormulatorViewWindow *>(activeSubWindow->widget());
 }
 
 QFormulatorEditWindow* QFormulatorMainWindow::activeEditSubWindow()
 {
     QMdiSubWindow *activeSubWindow = mdiArea->activeSubWindow();
+    if(!activeSubWindow && !mdiArea->subWindowList().isEmpty())
+    {
+        mdiArea->setActiveSubWindow(mdiArea->subWindowList().first());
+    }
     return !activeSubWindow ? 0 : qobject_cast<QFormulatorEditWindow *>(activeSubWindow->widget());
 }
 
@@ -1404,6 +1409,19 @@ void QFormulatorMainWindow::closeEvent( QCloseEvent *event )
     {
         writeSettings();
         event->accept();
+    }
+}
+
+void QFormulatorMainWindow::showEvent(QShowEvent *)
+{
+    if(!m_initialized)
+    {
+        mdiArea->setTabsClosable(false);
+        mdiArea->setDocumentMode(true);
+        mdiArea->setViewMode(QMdiArea::TabbedView);
+
+        newFile();
+        m_initialized = true;
     }
 }
 

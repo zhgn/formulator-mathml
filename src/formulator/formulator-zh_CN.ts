@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>BuildToolbarset</name>
     <message>
@@ -1326,7 +1326,7 @@
     <message>
         <location filename="fmlcore/src/gui/window/fmlviewwindow.cpp" line="100"/>
         <source>formula %1</source>
-        <translation type="unfinished"></translation>
+        <translation>公式 %1</translation>
     </message>
     <message>
         <location filename="fmlcore/src/gui/window/fmlviewwindow.cpp" line="117"/>
