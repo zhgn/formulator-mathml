@@ -1,33 +1,4 @@
-/****************************************************************************
-**
-** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
-** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
-**
-** All rights reserved.
-** Contact: Hermitech Laboratory (info@mmlsoft.com)
-**
-** This file is a part of the Formulator MathML Editor project
-** (http://www.mmlsoft.com).
-**
-** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this
-** file in accordance with the Formulator Commercial License Agreement
-** provided with the Software or, alternatively, in accordance with the
-** terms contained in a written agreement between you and
-** Hermitech Laboratory.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
-**
-** If you have questions regarding the use of this file, please contact
-** Hermitech Laboratory at info@mmlsoft.com.
-**
-****************************************************************************/
+
 
 #include <QtGlobal>
 #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
@@ -73,7 +44,7 @@ QFormulatorMainWindow::QFormulatorMainWindow(bool isEditMode, QWidget *parent, Q
     m_configLastPage = 0;
     m_currentPath = "";
 
-    setContextMenuPolicy(Qt::NoContextMenu);
+//    setContextMenuPolicy(Qt::NoContextMenu);
 
     mdiArea = new QMdiArea;
     mdiArea->setTabsClosable(false);
@@ -111,6 +82,7 @@ QFormulatorMainWindow::QFormulatorMainWindow(bool isEditMode, QWidget *parent, Q
     m_mmlViewer->hide();
 
     initGui( m_isEditMode = isEditMode );
+    resize(640, 320);
     readSettings();
 
     setWindowTitle(__FMLCORE_Product_Title);
@@ -119,8 +91,6 @@ QFormulatorMainWindow::QFormulatorMainWindow(bool isEditMode, QWidget *parent, Q
 
     newFile();
     automaticCheckUpdate();
-
-//    resize(640, 320);
 }
 
 void QFormulatorMainWindow::initGui( bool isEditMode )
@@ -297,11 +267,11 @@ void QFormulatorMainWindow::createActions()
 
     frmWebDonateAct = new QAction(tr("&Support Formulator project"), this);
     frmWebDonateAct->setStatusTip(tr("Open a link to a page where you can support further development of this free Formulator software with monetary donation"));
-    connect(frmWebDonateAct, SIGNAL(triggered()), this, SLOT(mmlsoftDonateWeb()));
+    connect(frmWebDonateAct, SIGNAL(triggered()), this, SLOT(yunentechDonateWeb()));
 
     frmWebAct = new QAction(tr("&Formulator on the Web"), this);
     frmWebAct->setStatusTip(tr("Open a link to the Formulator site"));
-    connect(frmWebAct, SIGNAL(triggered()), this, SLOT(mmlsoftWeb()));
+    connect(frmWebAct, SIGNAL(triggered()), this, SLOT(yunentechWeb()));
 
     manualCheckUpdateAct = new QAction(tr("&Check for Updates"), this);
     manualCheckUpdateAct->setStatusTip(tr("Check if a new version of the product is available"));
@@ -1453,9 +1423,9 @@ void QFormulatorMainWindow::about()
     QFont currentFont("Verdana", 8);
 #endif
     QString version = QString( "<p style=\"color: %1; font-size: %2pt; font-family: %3; \">"
-        "<b>%4 Info:</b><br/><br/>Version %5<br/>(c) 2003-2009 Hermitech Labs<br/>All rights reserved."
-        "<table><tr><td>E-mail:</td><td><a href=\"mailto:info@mmlsoft.com\">info@mmlsoft.com</a></td></tr>"
-        "<tr><td>Web:</td><td><a href=\"http://www.mmlsoft.com\">http://www.mmlsoft.com</a></td></tr><table></p>"
+        "<b>%4 Info:</b><br/><br/>Version %5<br/>(c) 2003-2009 ShenZhenYunEn Tech<br/>All rights reserved."
+        "<table><tr><td>E-mail:</td><td><a href=\"mailto:info@yunentech.com\">info@yunentech.com</a></td></tr>"
+        "<tr><td>Web:</td><td><a href=\"http://www.yunentech.com\">http://www.yunentech.com</a></td></tr><table></p>"
         "<p style=\"color: %6; font-size: %7pt; font-family: %8; \">"
         "This software uses the following libraries with thanks:<br/>- Qt (LGPL, http://qtsoftware.com),"
         "<br/>- Nuvola icon theme for kde 3.x (LGPL, http://www.icon-king.com) <br/>and Crystal Project Icons (LGPL, http://www.everaldo.com)</p>" )
@@ -1523,7 +1493,7 @@ void QFormulatorMainWindow::manualCheckUpdate()
 {
     checkUpdate();
     QMessageBox::information( this, __FMLCORE_Product_Title,
-        QString(tr("<p>Thank you.</p><p>Your request is sent to http://www.mmlsoft.com. </p>")), QMessageBox::Ok );
+        QString(tr("<p>Thank you.</p><p>Your request is sent to http://www.yunentech.com. </p>")), QMessageBox::Ok );
 }
 
 void QFormulatorMainWindow::checkUpdate()
@@ -1559,23 +1529,23 @@ void QFormulatorMainWindow::updateOk()
         QMessageBox::information( this, __FMLCORE_Product_Title,
             QString(tr("<p>Update to a new version of %1 is available.<br/><br/>"
             "Please visit our download page "
-            "<a href=\"http://www.mmlsoft.com/hdata/fml_downloads.php\">http://www.mmlsoft.com/hdata/fml_downloads.php</a> "
+            "<a href=\"http://www.yunentech.com/hdata/fml_downloads.php\">http://www.yunentech.com/hdata/fml_downloads.php</a> "
             "to get a new version.</p>")).arg( __FMLCORE_Product_Title ), QMessageBox::Ok );
         statusBar()->showMessage(tr("Updates are available..."), 2000);
     }
     else
-        statusBar()->showMessage(tr("http://www.mmlsoft.com has responded: There are no updates available..."), 5000);
+        statusBar()->showMessage(tr("http://www.yunentech.com has responded: There are no updates available..."), 5000);
 
     delete m_updater;
     m_updater = 0;
 }
 
-void QFormulatorMainWindow::mmlsoftWeb()
+void QFormulatorMainWindow::yunentechWeb()
 {
     QDesktopServices::openUrl(QUrl(__COMPANY_URL_));
 }
 
-void QFormulatorMainWindow::mmlsoftDonateWeb()
+void QFormulatorMainWindow::yunentechDonateWeb()
 {
     QDesktopServices::openUrl(QUrl(__COMPANY_URL_FORMULATOR_HOME__));
 }

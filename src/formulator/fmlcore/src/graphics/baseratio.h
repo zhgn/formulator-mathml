@@ -1,33 +1,4 @@
-/****************************************************************************
-**
-** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
-** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
-**
-** All rights reserved.
-** Contact: Hermitech Laboratory (info@mmlsoft.com)
-**
-** This file is a part of the Formulator MathML Editor project
-** (http://www.mmlsoft.com).
-**
-** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
-** Hermitech Laboratory.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
-**
-** If you have questions regarding the use of this file, please contact
-** Hermitech Laboratory at info@mmlsoft.com.
-**
-****************************************************************************/
+
 
 #if !defined( __FORMULATOR_BASERATIO_H__ )
 #define __FORMULATOR_BASERATIO_H__
@@ -46,7 +17,7 @@
 class CNode;
 class CParentNode;
 
-class __HERMITECH_FORMULIB__ CGraphPrimFormula
+class __YUNEN_FORMULIB__ CGraphPrimFormula
 {
 protected:
 	RectFde				m_pecents;
@@ -101,7 +72,7 @@ public:
 // Graph Primitives
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphPrim  
+class __YUNEN_FORMULIB__ CGraphPrim  
 {
 protected:
 	RealFde			m_aRealPosition[ 4 ], m_height, m_width;
@@ -160,7 +131,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphLine : public CGraphPrim  
+class __YUNEN_FORMULIB__ CGraphLine : public CGraphPrim  
 {
 public:
 	CGraphLine();
@@ -178,7 +149,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphRect : public CGraphPrim  
+class __YUNEN_FORMULIB__ CGraphRect : public CGraphPrim  
 {
 public:
 	CGraphRect();
@@ -196,7 +167,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphText : public CGraphPrim 
+class __YUNEN_FORMULIB__ CGraphText : public CGraphPrim 
 {
 protected:
 	QString		m_Str;
@@ -236,7 +207,7 @@ protected:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphBSpline : public CGraphPrim
+class __YUNEN_FORMULIB__ CGraphBSpline : public CGraphPrim
 {
 protected:
 	QVector<qint8>		m_point_type;
@@ -263,7 +234,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphBSplineEx : public CGraphBSpline
+class __YUNEN_FORMULIB__ CGraphBSplineEx : public CGraphBSpline
 {
 protected:
 	RealFde			m_offset_direction_x, m_offset_direction_y;
@@ -290,7 +261,7 @@ public:
 // to be compatible with previous versions of Formulator
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CGraphQuaterArc : public CGraphPrim  
+class __YUNEN_FORMULIB__ CGraphQuaterArc : public CGraphPrim  
 {
 protected:
 	QString			orientation;

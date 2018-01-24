@@ -1,7 +1,7 @@
 This is Formulator MathML Editor version 4.0.
 
 Formulator MathML Editor is a mathematical expressions editor 
-by Hermitech (http://www.mmlsoft.com).
+by ShenZhenYunEnTech (http://www.yunentech.com).
 
 Formulator is aware of presentation and content (semantics) face 
 of MathML, and so it allows not only to visually edit, but also 
@@ -23,7 +23,7 @@ Licensees holding valid Formulator Commercial licenses may use this
 file in accordance with the Formulator Commercial License Agreement 
 provided with the Software or, alternatively, in accordance with the 
 terms contained in a written agreement between you and 
-Hermitech Laboratory.
+ShenZhenYunEnTech.
 
 GNU General Public License Usage.
 Alternatively, this file may be used under the terms of the GNU
@@ -34,7 +34,7 @@ ensure the GNU General Public License version 3.0 requirements will be
 met: http://www.gnu.org/copyleft/gpl.html.
 
 If you have questions regarding the use of this file, please contact
-Hermitech Laboratory at info@mmlsoft.com.
+ShenZhenYunEnTech at info@yunentech.com.
 
 
 
@@ -45,7 +45,7 @@ build Formulator MathML Editor using Qt library of 4.5.2 or higher
 version with GCC or MS Visual Studio compilers.
 
 Ready to use install packages/executables for MS Windows, Linux 
-and MAC OS X are available on http://www.mmlsoft.com.
+and MAC OS X are available on http://www.yunentech.com.
 
 
 
@@ -55,4 +55,4 @@ If you think you have found a bug in Formulator MathML Editor,
 we would like to hear about it so that we can fix it. Please
 contact us using Google Code bug report system 
 (http://code.google.com/p/formulator-mathml/) or e-mail 
-(info@mmlsoft.com).
+(info@yunentech.com).

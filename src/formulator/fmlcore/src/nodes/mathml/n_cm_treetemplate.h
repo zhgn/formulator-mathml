@@ -1,33 +1,4 @@
-/****************************************************************************
-**
-** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
-** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
-**
-** All rights reserved.
-** Contact: Hermitech Laboratory (info@mmlsoft.com)
-**
-** This file is a part of the Formulator MathML Editor project
-** (http://www.mmlsoft.com).
-**
-** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
-** Hermitech Laboratory.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
-**
-** If you have questions regarding the use of this file, please contact
-** Hermitech Laboratory at info@mmlsoft.com.
-**
-****************************************************************************/
+
 
 #if !defined( FORMULATOR_N_CM_TREETEMPLATE_H )
 #define FORMULATOR_N_CM_TREETEMPLATE_H
@@ -105,7 +76,7 @@ QString getContentMathMLReferenceID_momentabout()
 
 ///////////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_Root
 {
 public:
 	MMLContent_TT_Root()
@@ -127,7 +98,7 @@ protected:
 	AST_TXML_Tag *root;
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_Token : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_Token : public MMLContent_TT_Root
 {
 public:
 	MMLContent_TT_Token()
@@ -142,7 +113,7 @@ protected:
 	AST_TXML_Value *m_value;
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_mrow : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_mrow : public MMLContent_TT_Root
 {
 public:
 	MMLContent_TT_mrow();
@@ -157,7 +128,7 @@ public:
 	}
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_mfenced : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_mfenced : public MMLContent_TT_Root
 {
 public:
 	MMLContent_TT_mfenced();
@@ -170,7 +141,7 @@ public:
 	}
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_mfenced_tuned : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_mfenced_tuned : public MMLContent_TT_Root
 {
 public:
 	MMLContent_TT_mfenced_tuned();
@@ -190,7 +161,7 @@ public:
 	}
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_Interval : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_Interval : public MMLContent_TT_Root
 {
 protected:
 	MMLContent_TT_mrow mrow_1, mrow_2;
@@ -200,7 +171,7 @@ public:
 	void reset();
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_ciRational : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_ciRational : public MMLContent_TT_Root
 {
 protected:
 	MMLContent_TT_mrow mrow_num, mrow_denum;
@@ -211,7 +182,7 @@ public:
 	void reset();
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_ciComplexCartesian : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_ciComplexCartesian : public MMLContent_TT_Root
 {
 protected:
 	MMLContent_TT_mrow mrow_re, mrow_im;
@@ -223,7 +194,7 @@ public:
 	void reset();
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_ciComplexPolar : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_ciComplexPolar : public MMLContent_TT_Root
 {
 protected:
 	MMLContent_TT_mrow mrow_re, mrow_im;
@@ -236,7 +207,7 @@ public:
 	void reset();
 };
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_cnBase : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_cnBase : public MMLContent_TT_Root
 {
 protected:
 	MMLContent_TT_mfenced mfenced;
@@ -280,7 +251,7 @@ public:
 };
 
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_MSup : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_MSup : public MMLContent_TT_Root
 {
 protected:
 	AST_TXML_Value *m_base, *m_parent;
@@ -306,7 +277,7 @@ public:
 };
 
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_MSupSub : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_MSupSub : public MMLContent_TT_Root
 {
 protected:
 	QString m_tagname;
@@ -316,7 +287,7 @@ public:
 };
 
 
-class __HERMITECH_FORMULIB__ MMLContent_TT_Vector : public MMLContent_TT_Root
+class __YUNEN_FORMULIB__ MMLContent_TT_Vector : public MMLContent_TT_Root
 {
 protected:
 	std::vector<AST_TXML_Compound*> todetach;
@@ -336,7 +307,7 @@ public:
 #define FBL_ATTR_value			_T("value")
 #define FBL_VAL_base			_T("base")
 
-__HERMITECH_FORMULIB__
+__YUNEN_FORMULIB__
 QString getCM_XMLTemplate_set_property( long dest_node_child, long src_node_child, QString name, QString type );
 
 inline

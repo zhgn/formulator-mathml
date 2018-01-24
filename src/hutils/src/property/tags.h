@@ -1,16 +1,3 @@
-/*
- *  tags.h, v.1.0 25/04/2003
- *
- *  Copyright (C) 2003 Hermitech Laboratory
- *
- *  Hermitech Equation Builder (Formulator)
- *  Names for XML Tree
- *
- *  HISTORY:
- *	 25/04/2003	The first draft
- *
- */ 
-
 #if !defined( __FORMULATOR_TAGS_H__ )
 #define __FORMULATOR_TAGS_H__
 

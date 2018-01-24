@@ -1,33 +1,4 @@
-/****************************************************************************
-**
-** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
-** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
-**
-** All rights reserved.
-** Contact: Hermitech Laboratory (info@mmlsoft.com)
-**
-** This file is a part of the Formulator MathML Editor project
-** (http://www.mmlsoft.com).
-**
-** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
-** Hermitech Laboratory.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
-**
-** If you have questions regarding the use of this file, please contact
-** Hermitech Laboratory at info@mmlsoft.com.
-**
-****************************************************************************/
+
 
 #if !defined( __FORMULATOR_NODE_MATHML_N_PROPLIST_H__ )
 #define __FORMULATOR_NODE_MATHML_N_PROPLIST_H__
@@ -85,7 +56,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-struct __HERMITECH_FORMULIB__ CNode_TextPropertyData
+struct __YUNEN_FORMULIB__ CNode_TextPropertyData
 {
 public:
 	char	m_typeCtrl, m_typeCtrlInstance;
@@ -136,7 +107,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CNode_TextPropertyList
+class __YUNEN_FORMULIB__ CNode_TextPropertyList
 {
 private:
 	QVector<CNode_TextPropertyData>	m_list_value;
@@ -214,7 +185,7 @@ unsigned long CNode_TextPropertyList::getParameterNumber()
 
 ///////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ CMMLNodeAttrList : public CNode_TextPropertyList
+class __YUNEN_FORMULIB__ CMMLNodeAttrList : public CNode_TextPropertyList
 {
 protected:
 	HKMapString2Long 				m_tagname2opid;
@@ -237,12 +208,12 @@ public:
 ///////////////////////////////////////////////////////////////////////////
 
 #define CNode_TextProperty_ContentOpArrLen 83
-__HERMITECH_FORMULIB__ extern QString CNode_TextProperty_ContentOpArr[ CNode_TextProperty_ContentOpArrLen ];
-__HERMITECH_FORMULIB__ void getNodeTextPropertyCtrlInstanceData( char typeCtrlInstance, QString*& head, long& number );
-__HERMITECH_FORMULIB__ CMMLNodeAttrList& getFullMathMLAttrList();
-__HERMITECH_FORMULIB__ void parseNodeAttr2PropList( CNode_TextPropertyList& props, std::vector<char>& supports, CNode *frmNode );
-__HERMITECH_FORMULIB__ void parseNodeAttr2PropList( CNode_TextPropertyList& props, std::vector<char>& supports, QString mathmlRes );
-__HERMITECH_FORMULIB__ QString convertAttrName2Key( QString tagName, QString attrName );
+__YUNEN_FORMULIB__ extern QString CNode_TextProperty_ContentOpArr[ CNode_TextProperty_ContentOpArrLen ];
+__YUNEN_FORMULIB__ void getNodeTextPropertyCtrlInstanceData( char typeCtrlInstance, QString*& head, long& number );
+__YUNEN_FORMULIB__ CMMLNodeAttrList& getFullMathMLAttrList();
+__YUNEN_FORMULIB__ void parseNodeAttr2PropList( CNode_TextPropertyList& props, std::vector<char>& supports, CNode *frmNode );
+__YUNEN_FORMULIB__ void parseNodeAttr2PropList( CNode_TextPropertyList& props, std::vector<char>& supports, QString mathmlRes );
+__YUNEN_FORMULIB__ QString convertAttrName2Key( QString tagName, QString attrName );
 
 ///////////////////////////////////////////////////////////////////////////
 

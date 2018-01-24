@@ -5,7 +5,7 @@
 #include "../GeneratedFiles/ui_buildtoolbarset.h"
 #include "../../fmlcore_global.h"
 
-class __HERMITECH_FORMULIB__ CBuildToolbarsetDlg
+class __YUNEN_FORMULIB__ CBuildToolbarsetDlg
 	: public QDialog//, public Ui::BuildToolbarset
 {
     Q_OBJECT

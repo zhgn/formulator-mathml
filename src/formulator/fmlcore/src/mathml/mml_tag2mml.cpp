@@ -1,16 +1,3 @@
-/*
- *  mml_tag2mml.cpp, v.1.0 07/11/2004
- *
- *  Copyright (C) 2004 Hermitech Laboratory
- *
- *  Hermitech Equation Builder (Formulator)
- *  Content Tree Nodes: Templates
- *
- *  HISTORY:
- *	 07/11/2004	The first draft
- *
- */ 
-
 #include <vector>
 
 #include "HUtils/iustring.h"

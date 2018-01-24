@@ -1,33 +1,4 @@
-/****************************************************************************
-**
-** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
-** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
-**
-** All rights reserved.
-** Contact: Hermitech Laboratory (info@mmlsoft.com)
-**
-** This file is a part of the Formulator MathML Editor project
-** (http://www.mmlsoft.com).
-**
-** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
-** Hermitech Laboratory.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
-**
-** If you have questions regarding the use of this file, please contact
-** Hermitech Laboratory at info@mmlsoft.com.
-**
-****************************************************************************/
+
 
 #if !defined( __COMMON_LANGUAGE_MATHML_FORMAT_MML_STYLE_H__ )
 #define __COMMON_LANGUAGE_MATHML_FORMAT_MML_STYLE_H__
@@ -90,7 +61,7 @@ QString mml_getMPaddedUnitName( int i );
 
 ///////////////////////////////////////////////////////////////////////////
 
-class __HERMITECH_FORMULIB__ HMathMLAttr
+class __YUNEN_FORMULIB__ HMathMLAttr
 {
 public:
 	HKLongFlag mo_flag;
@@ -203,18 +174,18 @@ enum Mathvariant2FontEnum
 	M2F_sans_serif
 };
 
-__HERMITECH_FORMULIB__ long mml_mathvariant2font( QString& name );
-__HERMITECH_FORMULIB__ long mml_mathvariant2font( AST_TXML_Tag *_token_tag );
-__HERMITECH_FORMULIB__ long mml_mathvariant2font( AST_TXML_Tag *_token_tag, long *onlydue2fontfamily );
-__HERMITECH_FORMULIB__ int mml_mathvariant2font( long isMathvariantPriority, long styleNo, const QVector<FS_LogFont_Color>& current_style_set, HMathMLAttr& mml_attr, FS_LogFont_Color& dest_font, long *nested_return = 0 );
-__HERMITECH_FORMULIB__ int mml_mathvariant2font( long isMathvariantPriority, long styleNo, const QVector<FS_LogFont_Color>& current_style_set, QString& name, FS_LogFont_Color& dest_font );
-__HERMITECH_FORMULIB__ int mml_mathcolor2color( QString val, QColor& dest_color, QColor default_color );
-__HERMITECH_FORMULIB__ int mml_mathsize2pointsize( const SYSINFO_Unit2PX& unit2px, QString val, RealFde& point_size );
-__HERMITECH_FORMULIB__ int mml_getTextAttr2FontColor( QColor& dest_color, AST_TXML_Tag *_token_tag );
-__HERMITECH_FORMULIB__ void mml_getStyle2TextAttrColor( QString& dest, QColor _color, const QString& tag, const QString& body );
-__HERMITECH_FORMULIB__ void mml_getStyle2TextAttrFont( QString& dest, FS_LogFont_Color& _font, const QString& tag, const QString& body, const HMathMLAttr& attr, int isForcedFontFamily );
-__HERMITECH_FORMULIB__ void mml_getStyle2TextPointSize( QString& dest, RealFde _size, const QString& tag, const QString& body );
-__HERMITECH_FORMULIB__ QString mml_get_space_template( const HMathMLAttr& attr, const SYSINFO_Unit2PX& unit2px );
+__YUNEN_FORMULIB__ long mml_mathvariant2font( QString& name );
+__YUNEN_FORMULIB__ long mml_mathvariant2font( AST_TXML_Tag *_token_tag );
+__YUNEN_FORMULIB__ long mml_mathvariant2font( AST_TXML_Tag *_token_tag, long *onlydue2fontfamily );
+__YUNEN_FORMULIB__ int mml_mathvariant2font( long isMathvariantPriority, long styleNo, const QVector<FS_LogFont_Color>& current_style_set, HMathMLAttr& mml_attr, FS_LogFont_Color& dest_font, long *nested_return = 0 );
+__YUNEN_FORMULIB__ int mml_mathvariant2font( long isMathvariantPriority, long styleNo, const QVector<FS_LogFont_Color>& current_style_set, QString& name, FS_LogFont_Color& dest_font );
+__YUNEN_FORMULIB__ int mml_mathcolor2color( QString val, QColor& dest_color, QColor default_color );
+__YUNEN_FORMULIB__ int mml_mathsize2pointsize( const SYSINFO_Unit2PX& unit2px, QString val, RealFde& point_size );
+__YUNEN_FORMULIB__ int mml_getTextAttr2FontColor( QColor& dest_color, AST_TXML_Tag *_token_tag );
+__YUNEN_FORMULIB__ void mml_getStyle2TextAttrColor( QString& dest, QColor _color, const QString& tag, const QString& body );
+__YUNEN_FORMULIB__ void mml_getStyle2TextAttrFont( QString& dest, FS_LogFont_Color& _font, const QString& tag, const QString& body, const HMathMLAttr& attr, int isForcedFontFamily );
+__YUNEN_FORMULIB__ void mml_getStyle2TextPointSize( QString& dest, RealFde _size, const QString& tag, const QString& body );
+__YUNEN_FORMULIB__ QString mml_get_space_template( const HMathMLAttr& attr, const SYSINFO_Unit2PX& unit2px );
 
 /////////////////////////////////////////////////////////////////////
 

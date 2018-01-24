@@ -1,33 +1,4 @@
-/****************************************************************************
-**
-** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
-** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
-**
-** All rights reserved.
-** Contact: Hermitech Laboratory (info@mmlsoft.com)
-**
-** This file is a part of the Formulator MathML Editor project
-** (http://www.mmlsoft.com).
-**
-** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
-** Hermitech Laboratory.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
-** packaging of this file.  Please review the following information to
-** ensure the GNU General Public License version 3.0 requirements will be
-** met: http://www.gnu.org/copyleft/gpl.html.
-**
-** If you have questions regarding the use of this file, please contact
-** Hermitech Laboratory at info@mmlsoft.com.
-**
-****************************************************************************/
+
 
 #if !defined( __COMMON_LANGUAGE_MATHML_MML_FORMAT_H__ )
 #define __COMMON_LANGUAGE_MATHML_MML_FORMAT_H__
@@ -47,36 +18,36 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-__HERMITECH_FORMULIB__ QString mml_tag_self_nl( const QString& name, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_self_no_nl( const QString& name, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_no_nl( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_no_nl_part1( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_no_nl_part2( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_nl( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_nl_part1( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_nl_part2( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag_auto_nl( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tag( const QString& name, const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_root_tag_xmlns( const QString& body, long level = 0 );
-__HERMITECH_FORMULIB__ QString mml_root_tag( const QString& body, long level = 0 );
-__HERMITECH_FORMULIB__ QString mml_root_tag_4_html_mathml( int is_block, const QString& body, long level = 0 );
-__HERMITECH_FORMULIB__ QString mml_table_tag( const QString& body, const QString& attr, long level );
-__HERMITECH_FORMULIB__ QString mml_tablerow_tag( const QString& body, long level );
-__HERMITECH_FORMULIB__ QString mml_tablecell_tag( const QString& body, long level, QString attr = _T("") );
-__HERMITECH_FORMULIB__ QString mml_fence( const QString& body, const QString& left, const QString& right, long level );
-__HERMITECH_FORMULIB__ void mml_validate4html( QString& src );
-__HERMITECH_FORMULIB__ QString mml_row_tag_nl( const QString& body, long level );
-__HERMITECH_FORMULIB__ QString mml_row_tag_no_nl( const QString& body, long level );
-__HERMITECH_FORMULIB__ int mml_is_table_tag_correct( AST_TXML_Compound *_math_tags, std::vector<long>& line_length );
-__HERMITECH_FORMULIB__ int mml_is_table_tag_correct( AST_TXML_Tag *_mtable, std::vector<long>& line_length );
-__HERMITECH_FORMULIB__ AST_TXML_Compound* mml_get_table_tag_cell( AST_TXML_Tag *_mtable, long row_no, long col_no );
-__HERMITECH_FORMULIB__ AST_TXML_Tag* mml_get_table_tag_mtr( AST_TXML_Tag *_mtable, long row_no );
-__HERMITECH_FORMULIB__ AST_TXML_Tag* mml_get_table_tag_mtd( AST_TXML_Tag *_mtable, long row_no, long col_no );
-__HERMITECH_FORMULIB__ int mml_is_table_tag_box_solid( AST_TXML_Tag* node );
-__HERMITECH_FORMULIB__ int mml_is_token_tag_correct( AST_TXML_Tag *node );
-__HERMITECH_FORMULIB__ int mml_is_italic_token_mi( const QString& _tag_name, const QString& _tag_body );
-__HERMITECH_FORMULIB__ int mml_has_equivalent_attr( const AST_TXML_Compound* _new_attr, const QString attrname );
-__HERMITECH_FORMULIB__ int mml_isAttrTakingNamedspace( QString attrName );
+__YUNEN_FORMULIB__ QString mml_tag_self_nl( const QString& name, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_self_no_nl( const QString& name, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_no_nl( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_no_nl_part1( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_no_nl_part2( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_nl( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_nl_part1( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_nl_part2( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag_auto_nl( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tag( const QString& name, const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_root_tag_xmlns( const QString& body, long level = 0 );
+__YUNEN_FORMULIB__ QString mml_root_tag( const QString& body, long level = 0 );
+__YUNEN_FORMULIB__ QString mml_root_tag_4_html_mathml( int is_block, const QString& body, long level = 0 );
+__YUNEN_FORMULIB__ QString mml_table_tag( const QString& body, const QString& attr, long level );
+__YUNEN_FORMULIB__ QString mml_tablerow_tag( const QString& body, long level );
+__YUNEN_FORMULIB__ QString mml_tablecell_tag( const QString& body, long level, QString attr = _T("") );
+__YUNEN_FORMULIB__ QString mml_fence( const QString& body, const QString& left, const QString& right, long level );
+__YUNEN_FORMULIB__ void mml_validate4html( QString& src );
+__YUNEN_FORMULIB__ QString mml_row_tag_nl( const QString& body, long level );
+__YUNEN_FORMULIB__ QString mml_row_tag_no_nl( const QString& body, long level );
+__YUNEN_FORMULIB__ int mml_is_table_tag_correct( AST_TXML_Compound *_math_tags, std::vector<long>& line_length );
+__YUNEN_FORMULIB__ int mml_is_table_tag_correct( AST_TXML_Tag *_mtable, std::vector<long>& line_length );
+__YUNEN_FORMULIB__ AST_TXML_Compound* mml_get_table_tag_cell( AST_TXML_Tag *_mtable, long row_no, long col_no );
+__YUNEN_FORMULIB__ AST_TXML_Tag* mml_get_table_tag_mtr( AST_TXML_Tag *_mtable, long row_no );
+__YUNEN_FORMULIB__ AST_TXML_Tag* mml_get_table_tag_mtd( AST_TXML_Tag *_mtable, long row_no, long col_no );
+__YUNEN_FORMULIB__ int mml_is_table_tag_box_solid( AST_TXML_Tag* node );
+__YUNEN_FORMULIB__ int mml_is_token_tag_correct( AST_TXML_Tag *node );
+__YUNEN_FORMULIB__ int mml_is_italic_token_mi( const QString& _tag_name, const QString& _tag_body );
+__YUNEN_FORMULIB__ int mml_has_equivalent_attr( const AST_TXML_Compound* _new_attr, const QString attrname );
+__YUNEN_FORMULIB__ int mml_isAttrTakingNamedspace( QString attrName );
 
 ///////////////////////////////////////////////////////////////////////////////
 

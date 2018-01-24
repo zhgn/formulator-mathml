@@ -25,3 +25,4 @@ include(formulator.pri)
 
 QT += printsupport
 DEFINES += NOMINMAX
+TRANSLATIONS += formulator-zh_CN.ts
