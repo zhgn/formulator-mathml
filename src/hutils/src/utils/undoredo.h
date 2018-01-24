@@ -141,7 +141,7 @@ long CUndoRedo::GetUndoLevels()
 
 inline 
 void CUndoRedo::SetUndoLevels( long nUndoLevels )
-	{ m_nUndoLevels = std::max( (long) 1, nUndoLevels ); };
+	{ m_nUndoLevels = qMax( (long) 1, nUndoLevels ); };
 
 ///////////////////////////////////////////////////////////////////////////////
 

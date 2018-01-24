@@ -261,7 +261,7 @@ void _fractDeriativeComplex(CDSRArray<CDSRComplex>* pNumerator, CDSRArray<CDSRCo
 	_multyOfPoly(&deriv, pNumerator, &poly2);
 	_size1 = (long) poly1.size();
 	_size2 = (long) poly2.size();
-	_size = std::max( _size1, _size2 );
+	_size = qMax( _size1, _size2 );
 	deriv.resize( _size );
 	for( i = 0; i < _size; i++ )
 		deriv[ i ]  = ( _size1 - _size + i >= 0 ? poly1[ _size1 - _size + i ] : CDSRComplex(0.0, 0.0) ) - ( _size2 - _size + i >= 0 ? poly2[ _size2 - _size + i ] : CDSRComplex(0.0, 0.0) );

@@ -10,10 +10,10 @@
 ** (http://www.mmlsoft.com).
 **
 ** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
+** Licensees holding valid Formulator Commercial licenses may use this
+** file in accordance with the Formulator Commercial License Agreement
+** provided with the Software or, alternatively, in accordance with the
+** terms contained in a written agreement between you and
 ** Hermitech Laboratory.
 **
 ** GNU General Public License Usage
@@ -44,7 +44,7 @@
 inline
 int _iseof( QChar c )
 {
-	return c == EOF_ASCII_NULL || c == EOF_ASCII_1A;
+    return c == EOF_ASCII_NULL || c == EOF_ASCII_1A;
 }
 
 #define _isalpha( c ) ( ((c) >= _T('a') && (c) <= _T('z')) || ((c) >= _T('A') && (c) <= _T('Z')) )
@@ -59,48 +59,48 @@ int _iseof( QChar c )
 inline
 short int hex2dec( QChar S )
 {
-	if( S.isDigit() )
-		return S.digitValue();
-	else if( _isalpha( S.toAscii() ) )
-		return S.toUpper().toAscii() - _T('A') + 10;
-	return 0;
+    if( S.isDigit() )
+        return S.digitValue();
+    else if( _isalpha( S.toLatin1() ) )
+        return S.toUpper().toLatin1() - _T('A') + 10;
+    return 0;
 }
 
 inline
 long hround( double src )
 {
-	if( fabs( src - long(src) ) < 0.5 )
-	{
-		if( src > 0 )
-			return (long)floor( src );
-		else
-			return (long)ceil( src );
-	}
-	else
-	{
-		if( src > 0 )
-			return (long)ceil( src );
-		else
-			return (long)floor( src );
-	}
+    if( fabs( src - long(src) ) < 0.5 )
+    {
+        if( src > 0 )
+            return (long)floor( src );
+        else
+            return (long)ceil( src );
+    }
+    else
+    {
+        if( src > 0 )
+            return (long)ceil( src );
+        else
+            return (long)floor( src );
+    }
 }
 
 inline
 int xml_strcmp( const QString& a, const QString& b )
 {
-	return a.compare( b, Qt::CaseSensitive );
+    return a.compare( b, Qt::CaseSensitive );
 }
 
 inline
 int html_strcmp( const QString& a, const QString& b )
 {
-	return a.compare( b, Qt::CaseInsensitive );
+    return a.compare( b, Qt::CaseInsensitive );
 }
 
 inline
 void print2blank( QString& dest, long n )
 {
-	dest.append( QString(n, _T(' ')) );
+    dest.append( QString(n, _T(' ')) );
 }
 
 HUTILS_EXPORT QString generateTextSeed( unsigned long nSize );

@@ -10,10 +10,10 @@
 ** (http://www.mmlsoft.com).
 **
 ** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
+** Licensees holding valid Formulator Commercial licenses may use this
+** file in accordance with the Formulator Commercial License Agreement
+** provided with the Software or, alternatively, in accordance with the
+** terms contained in a written agreement between you and
 ** Hermitech Laboratory.
 **
 ** GNU General Public License Usage
@@ -37,8 +37,10 @@
 int main( int argc, char *argv[] )
 {
     //Q_INIT_RESOURCE(fmlide);
-	QApplication a(argc, argv);
-	QFormulatorMainWindow w( true );
-	w.show();
-	return a.exec();
+    QApplication a(argc, argv);
+
+    QFormulatorMainWindow w( true );
+    w.show();
+
+    return a.exec();
 }

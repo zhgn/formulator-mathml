@@ -1,4 +1,4 @@
-/****************************************************************************
+ï»¿/****************************************************************************
 **
 ** Copyright (C) 2010 Andriy Kovalchuk, Vyacheslav Levytskyy,
 ** Igor Samolyuk, Valentyn Yanchuk (aka "Hermitech Laboratory")
@@ -203,20 +203,20 @@ extern const QString __mml_char__value[ MML_CHAR__NUMBER ] =
 	_T("-"),
 	_T("?"),
 	_T("i"),
-	_T("¹"),
-	_T("Ø"),
-	_T("Ù"),
-	_T("Ú"),
+	_T("Â¹"),
+	_T("Ã˜"),
+	_T("Ã™"),
+	_T("Ãš"),
 	_T("-"),
 	_T("R"),
-	_T("È"),//å
+	_T("Ãˆ"),//Ã¥
 	_T("?"),
 	_T("<"),
-	_T("¨"),
-	_T("¬"),
+	_T("Â¨"),
+	_T("Â¬"),
 	_T("c"),
-	_T("ª"),
-	_T("ä")
+	_T("Âª"),
+	_T("Ã¤")
 };
 
 extern const QString __mml_char__name[ MML_CHAR__NUMBER ] =

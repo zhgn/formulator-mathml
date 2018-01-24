@@ -6,22 +6,22 @@
 
 typedef struct tagROOT_INFO
 {
-	CDSRReal 	real;
-	CDSRReal 	image;
-	int			isComplex;
-	long		multiplicity;
+    CDSRReal 	real;
+    CDSRReal 	image;
+    int			isComplex;
+    long		multiplicity;
 
-	tagROOT_INFO()
-	{
-		real		= 0.0;
-		image		= 0.0;
-		isComplex	= FALSE;
-		multiplicity	= 1;
-	}
-	CDSRComplex getComplexValue( void )
-	{
-		return isComplex ? CDSRComplex( real, image ) : CDSRComplex( real, 0.0 );
-	}
+    tagROOT_INFO()
+    {
+        real		= 0.0;
+        image		= 0.0;
+        isComplex	= 0;
+        multiplicity	= 1;
+    }
+    CDSRComplex getComplexValue( void )
+    {
+        return isComplex ? CDSRComplex( real, image ) : CDSRComplex( real, 0.0 );
+    }
 } ROOT_INFO;
 
 #endif

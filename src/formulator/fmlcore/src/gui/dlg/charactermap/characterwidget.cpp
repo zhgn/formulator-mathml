@@ -10,10 +10,10 @@
 ** (http://www.mmlsoft.com).
 **
 ** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
+** Licensees holding valid Formulator Commercial licenses may use this
+** file in accordance with the Formulator Commercial License Agreement
+** provided with the Software or, alternatively, in accordance with the
+** terms contained in a written agreement between you and
 ** Hermitech Laboratory.
 **
 ** GNU General Public License Usage
@@ -29,7 +29,11 @@
 **
 ****************************************************************************/
 
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
 #include "characterwidget.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -43,7 +47,7 @@ CInsertCharacterWidget::CInsertCharacterWidget(QWidget *parent)
     squareSize = CELLSIZE;
     columns = COLUMNS;
     lastKey = -1;
-	color = QColor(0, 0, 0);
+    color = QColor(0, 0, 0);
     setMouseTracking( true );
 }
 
@@ -76,14 +80,14 @@ void CInsertCharacterWidget::updateStyle(const QString &fontStyle)
 
 void CInsertCharacterWidget::updateFontMerging(bool enable)
 {
-	displayFont.setStyleStrategy( enable ? QFont::PreferDefault : QFont::NoFontMerging );
+    displayFont.setStyleStrategy( enable ? QFont::PreferDefault : QFont::NoFontMerging );
     adjustSize();
     update();
 }
 
 void CInsertCharacterWidget::updateColor( const QColor &fontColor )
 {
-	color = fontColor;
+    color = fontColor;
     update();
 }
 
@@ -107,9 +111,9 @@ void CInsertCharacterWidget::mouseMoveEvent(QMouseEvent *event)
 void CInsertCharacterWidget::mousePressEvent(QMouseEvent *event)
 {
     if( event->button() == Qt::LeftButton)
-	{
+    {
         lastKey = (event->y() / squareSize) * columns + event->x() / squareSize;
-        if( QChar(lastKey).category() != QChar::NoCategory )
+        if( QChar(lastKey).category() != QChar::Other_NotAssigned )
             emit characterSelected(QString(QChar(lastKey)));
         update();
     }
@@ -136,11 +140,11 @@ void CInsertCharacterWidget::paintEvent(QPaintEvent *event)
 
     QFontMetrics fontMetrics( displayFont );
     for (int row = beginRow; row <= endRow; ++row)
-	{
+    {
         for (int column = beginColumn; column <= endColumn; ++column)
-		{
-			//painter.setPen( QPen(Qt::black) );
-			painter.setPen( color );
+        {
+            //painter.setPen( QPen(Qt::black) );
+            painter.setPen( color );
             int key = row * columns + column;
             painter.setClipRect( column * squareSize, row * squareSize, squareSize, squareSize );
 

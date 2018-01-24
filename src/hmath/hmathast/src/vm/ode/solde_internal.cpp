@@ -85,7 +85,7 @@ bool SoldeOneStep( CDSR_VMEval *pOdeRTI, CDSRReal& time,
 	for ( i = 0; i < pFunc->size(); i++ )
 	{
 		(*pFunc)[ i ] = func[ i ] + param.p21h * (*pFuncD)[ i ] + param.p22h * funcD1[ i ];
-		rlError = std::max( rlError, fabs( param.p22h * (funcD1[ i ] - (*pFuncD)[ i ]) ) );
+		rlError = qMax( rlError, fabs( param.p22h * (funcD1[ i ] - (*pFuncD)[ i ]) ) );
 	}
 	if ( rlError < rlPrec )
 	{
@@ -99,7 +99,7 @@ bool SoldeOneStep( CDSR_VMEval *pOdeRTI, CDSRReal& time,
 	for ( i = 0; i < pFunc->size(); i++ )
 	{
 		(*pFunc)[ i ] = func[ i ] + param.p31h * (*pFuncD)[ i ] + param.p32h * funcD1[ i ] + param.p33h * funcD2[ i ];
-		rlError = std::max( rlError, fabs( param.pe31h * (*pFuncD)[ i ] + param.pe32h * funcD1[ i ] + param.p33h * funcD2[ i ] ) );
+		rlError = qMax( rlError, fabs( param.pe31h * (*pFuncD)[ i ] + param.pe32h * funcD1[ i ] + param.p33h * funcD2[ i ] ) );
 	}
 	if ( rlError < rlPrec )
 	{

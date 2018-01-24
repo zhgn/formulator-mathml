@@ -124,7 +124,7 @@ void CFrameNode::RecalculateSize_ReArrangeChildPos( SizeFde &sz )
 		pos.ry() = sz.height();
 		GetChild( i )->SetPosition( pos );
 		sz.rheight() += GetChild( i )->GetSize().height() * lineSpacing;
-		sz.rwidth() = std::max( sz.width(), pos.x() + GetChild( i )->GetSize().width() );
+		sz.rwidth() = qMax( sz.width(), pos.x() + GetChild( i )->GetSize().width() );
 	}
 	sz.rwidth() += getRightIndent();
 	sz.rheight() += getBottomIndent();

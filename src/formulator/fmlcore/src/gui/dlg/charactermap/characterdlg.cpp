@@ -10,10 +10,10 @@
 ** (http://www.mmlsoft.com).
 **
 ** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
+** Licensees holding valid Formulator Commercial licenses may use this
+** file in accordance with the Formulator Commercial License Agreement
+** provided with the Software or, alternatively, in accordance with the
+** terms contained in a written agreement between you and
 ** Hermitech Laboratory.
 **
 ** GNU General Public License Usage
@@ -29,7 +29,11 @@
 **
 ****************************************************************************/
 
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
 
 #include "characterwidget.h"
 #include "characterdlg.h"
@@ -39,55 +43,55 @@
 /////////////////////////////////////////////////////////////////////////////
 
 CInsertCharacterDialog::CInsertCharacterDialog( QColor backColor, QWidget *parent )
-	: QDialog( parent )
+    : QDialog( parent )
 {
-	const FS_LogFont_Color& lfc = ::getFontStyle( ::getCurrentFormulatorStyle_OnChar() );
-	QFont currentFmlFont( lfc.m_name, (int) ::getCurrentKegl(), lfc.m_isBold ? QFont::Bold : QFont::Normal, lfc.m_isItalic ? true : false );
-	currentFmlFont.setFixedPitch( lfc.m_isFixed );
-	currentFmlFont.setStyleHint( lfc.m_hint );
-	m_backColor = backColor;
-	m_hasStyledText = false;
+    const FS_LogFont_Color& lfc = ::getFontStyle( ::getCurrentFormulatorStyle_OnChar() );
+    QFont currentFmlFont( lfc.m_name, (int) ::getCurrentKegl(), lfc.m_isBold ? QFont::Bold : QFont::Normal, lfc.m_isItalic ? true : false );
+    currentFmlFont.setFixedPitch( lfc.m_isFixed );
+    currentFmlFont.setStyleHint( lfc.m_hint );
+    m_backColor = backColor;
+    m_hasStyledText = false;
 
-	QWidget *centralWidget = new QWidget;
+    QWidget *centralWidget = new QWidget;
 
     QLabel *fontLabel = new QLabel(tr("Font:"));
     fontCombo = new QFontComboBox();
-	fontCombo->setCurrentFont( currentFmlFont );
+    fontCombo->setCurrentFont( currentFmlFont );
     QLabel *sizeLabel = new QLabel(tr("Size:"));
     sizeCombo = new QComboBox;
     QLabel *styleLabel = new QLabel(tr("Style:"));
     styleCombo = new QComboBox;
 
-	scrollArea = new QScrollArea;
+    scrollArea = new QScrollArea;
     characterWidget = new CInsertCharacterWidget;
     scrollArea->setWidget(characterWidget);
-	characterWidget->updateStyle( m_initFontStyle = QFontDatabase().styleString( currentFmlFont ) );
-	characterWidget->updateSize( QString().number( m_initFontSize = currentFmlFont.pointSize() ) );
-	characterWidget->updateFont( currentFmlFont );
+    characterWidget->updateStyle( m_initFontStyle = QFontDatabase().styleString( currentFmlFont ) );
+    characterWidget->updateSize( QString().number( m_initFontSize = currentFmlFont.pointSize() ) );
+    characterWidget->updateFont( currentFmlFont );
 
     findStyles(fontCombo->currentFont());
     findSizes(fontCombo->currentFont());
     lineEdit = new QLineEdit;
 
-	QPushButton *colorButton = new QPushButton(tr("&Set Color"));
-	colorButton->setIcon(QIcon(":/images/setcolor.png"));
-	QLabel *labelSampleTextTitle = new QLabel("Sample text:");
-	labelSampleText = new QLabel();
-	labelSampleText->setFrameShape( QFrame::Box );
-	updateSampleText();
+    QPushButton *colorButton = new QPushButton(tr("&Set Color"));
+    colorButton->setIcon(QIcon(":/images/setcolor.png"));
+    QLabel *labelSampleTextTitle = new QLabel("Sample text:");
+    labelSampleText = new QLabel();
+    labelSampleText->setFrameShape( QFrame::Box );
+    updateSampleText();
 
     clipboard = QApplication::clipboard();
     QPushButton *styledInsertButton = new QPushButton(tr("Insert with style"));
-	styledInsertButton->setIcon(QIcon(":/images/insertasstyledtext.png"));
+    styledInsertButton->setIcon(QIcon(":/images/insertasstyledtext.png"));
     QPushButton *plainInsertButton = new QPushButton(tr("Insert plain text"));
-	plainInsertButton->setIcon(QIcon(":/images/insertasplaintext.png"));
+    plainInsertButton->setIcon(QIcon(":/images/insertasplaintext.png"));
     QPushButton *clipboardButton = new QPushButton(tr("&Copy to clipboard"));
-	clipboardButton->setIcon(QIcon(":/images/copy.png"));
+    clipboardButton->setIcon(QIcon(":/images/copy.png"));
     QPushButton *closeButton = new QPushButton(tr("&Cancel"));
-	closeButton->setIcon(QIcon(":/images/exit.png"));
+    closeButton->setIcon(QIcon(":/images/exit.png"));
 
-	connect(colorButton, SIGNAL(clicked()), this, SLOT(updateColor()));
-	connect(fontCombo, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(findStyles(const QFont &)));
+    connect(colorButton, SIGNAL(clicked()), this, SLOT(updateColor()));
+    connect(fontCombo, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(findStyles(const QFont &)));
     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(findSizes(const QFont &)));
     connect(fontCombo, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(updateFont(const QFont &)));
     connect(sizeCombo, SIGNAL(currentIndexChanged(const QString &)), this, SLOT(updateSize(const QString &)));
@@ -127,11 +131,11 @@ CInsertCharacterDialog::CInsertCharacterDialog( QColor backColor, QWidget *paren
     centralWidget->setLayout(centralLayout);
 
     QVBoxLayout *upperLayout = new QVBoxLayout;
-	upperLayout->addWidget(centralWidget);
-	setLayout(upperLayout);
+    upperLayout->addWidget(centralWidget);
+    setLayout(upperLayout);
 
-	setWindowTitle(tr("Insert Character"));
-	characterWidget->setFocus();
+    setWindowTitle(tr("Insert Character"));
+    characterWidget->setFocus();
 }
 
 CInsertCharacterDialog::~CInsertCharacterDialog()
@@ -140,92 +144,92 @@ CInsertCharacterDialog::~CInsertCharacterDialog()
 
 const QFont& CInsertCharacterDialog::currentFont()
 {
-	return characterWidget->currentFont();
+    return characterWidget->currentFont();
 }
 
 const QColor& CInsertCharacterDialog::currentColor()
 {
-	return characterWidget->currentColor();
+    return characterWidget->currentColor();
 }
 
 void CInsertCharacterDialog::updateFont(const QFont &font)
 {
-	characterWidget->updateFont(font);
-	updateSampleText();
+    characterWidget->updateFont(font);
+    updateSampleText();
 }
 
 void CInsertCharacterDialog::updateSize(const QString &fontSize)
 {
-	characterWidget->updateSize(fontSize);
-	updateSampleText();
+    characterWidget->updateSize(fontSize);
+    updateSampleText();
 }
 
 void CInsertCharacterDialog::updateStyle(const QString &fontStyle)
 {
-	characterWidget->updateStyle(fontStyle);
-	updateSampleText();
+    characterWidget->updateStyle(fontStyle);
+    updateSampleText();
 }
 
 void CInsertCharacterDialog::updateSampleText()
 {
-	QString text = QString("<span style=\"background-color: %1; color: %2; font-size: %3pt; font-family: %4; font-weight: %5; font-style: %6;\">ABCabc</span>")
-						.arg(m_backColor.name())
-						.arg(currentColor().name())
-						.arg(currentFont().pointSize())
-						.arg(currentFont().family())
-						.arg(currentFont().bold() ? "bold" : "normal")
-						.arg(currentFont().italic() ? "italic" : "normal");
-	labelSampleText->setText( text );
+    QString text = QString("<span style=\"background-color: %1; color: %2; font-size: %3pt; font-family: %4; font-weight: %5; font-style: %6;\">ABCabc</span>")
+                        .arg(m_backColor.name())
+                        .arg(currentColor().name())
+                        .arg(currentFont().pointSize())
+                        .arg(currentFont().family())
+                        .arg(currentFont().bold() ? "bold" : "normal")
+                        .arg(currentFont().italic() ? "italic" : "normal");
+    labelSampleText->setText( text );
 }
 
 void CInsertCharacterDialog::updateColor()
 {
-	QColor newColor = QColorDialog::getColor( currentColor(), this );
-	characterWidget->updateColor( newColor );
-	updateSampleText();
+    QColor newColor = QColorDialog::getColor( currentColor(), this );
+    characterWidget->updateColor( newColor );
+    updateSampleText();
 }
 
 void CInsertCharacterDialog::findStyles(const QFont &font)
 {
     QFontDatabase fontDatabase;
     QString currentItem = styleCombo->currentText();
-	if( currentItem.isEmpty() )
-		currentItem = m_initFontStyle;
+    if( currentItem.isEmpty() )
+        currentItem = m_initFontStyle;
     styleCombo->clear();
 
     QString style;
     foreach( style, fontDatabase.styles( font.family() ) )
-	{
+    {
         styleCombo->addItem( style );
-	}
+    }
 
     int styleIndex = styleCombo->findText( currentItem );
-	styleCombo->setCurrentIndex( styleIndex == -1 ? 0 : styleIndex );
+    styleCombo->setCurrentIndex( styleIndex == -1 ? 0 : styleIndex );
 }
 
 void CInsertCharacterDialog::findSizes(const QFont &font)
 {
     QFontDatabase fontDatabase;
     QString currentSize = sizeCombo->currentText();
-	if( currentSize.isEmpty() )
-		currentSize = QString::number( m_initFontSize );
+    if( currentSize.isEmpty() )
+        currentSize = QString::number( m_initFontSize );
 
-	sizeCombo->blockSignals( true );
+    sizeCombo->blockSignals( true );
     sizeCombo->clear();
     int size;
     if( fontDatabase.isSmoothlyScalable( font.family(), fontDatabase.styleString( font )) )
-	{
+    {
         foreach( size, QFontDatabase::standardSizes() )
-		{
+        {
             sizeCombo->addItem( QVariant(size).toString() );
             sizeCombo->setEditable( true );
         }
 
     }
-	else
-	{
+    else
+    {
         foreach( size, fontDatabase.smoothSizes( font.family(), fontDatabase.styleString( font ) ) )
-		{
+        {
             sizeCombo->addItem( QVariant(size).toString() );
             sizeCombo->setEditable( false );
         }
@@ -233,7 +237,7 @@ void CInsertCharacterDialog::findSizes(const QFont &font)
     sizeCombo->blockSignals( false );
 
     int sizeIndex = sizeCombo->findText( currentSize );
-	sizeCombo->setCurrentIndex( sizeIndex == -1 ? qMax(0, sizeCombo->count() / 3) : sizeIndex );
+    sizeCombo->setCurrentIndex( sizeIndex == -1 ? qMax(0, sizeCombo->count() / 3) : sizeIndex );
 }
 
 void CInsertCharacterDialog::insertCharacter(const QString &character)
@@ -249,10 +253,10 @@ void CInsertCharacterDialog::updateClipboard()
 
 void CInsertCharacterDialog::updateDocument( bool styledText )
 {
-	updateClipboard();
-	m_text = lineEdit->text();
-	m_hasStyledText = styledText;
-	accept();
+    updateClipboard();
+    m_text = lineEdit->text();
+    m_hasStyledText = styledText;
+    accept();
 }
 
 /////////////////////////////////////////////////////////////////////////////

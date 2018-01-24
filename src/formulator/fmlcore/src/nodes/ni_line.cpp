@@ -187,7 +187,7 @@ void CLineNode::RecalculateSize_ReArrangeChildPos( SizeFde &sz )
 			pNode->SetPosition( pos );
 			pos.rx() += pNode->GetSize().width();
 			if( pos.x() > sz.width() ) sz.rwidth() = pos.x();
-			sz.rheight() = std::max( sz.height(), pos.y() + pNode->GetSize().height() );
+			sz.rheight() = qMax( sz.height(), pos.y() + pNode->GetSize().height() );
 		}
 		sz.rwidth() += getRightIndent(); 
 		sz.rheight() += getBottomIndent();

@@ -10,10 +10,10 @@
 ** (http://www.mmlsoft.com).
 **
 ** Commercial Usage
-** Licensees holding valid Formulator Commercial licenses may use this 
-** file in accordance with the Formulator Commercial License Agreement 
-** provided with the Software or, alternatively, in accordance with the 
-** terms contained in a written agreement between you and 
+** Licensees holding valid Formulator Commercial licenses may use this
+** file in accordance with the Formulator Commercial License Agreement
+** provided with the Software or, alternatively, in accordance with the
+** terms contained in a written agreement between you and
 ** Hermitech Laboratory.
 **
 ** GNU General Public License Usage
@@ -32,9 +32,12 @@
 #ifndef __FMLCORE_DLG_PAGESETUPDLG_H__
 #define __FMLCORE_DLG_PAGESETUPDLG_H__
 
-#include <QMainWindow>
-#include <QString>
-#include <QDialog>
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QtPrintSupport>
+#include <QtWidgets>
+#else
+#include <QtGui>
+#endif
 
 QT_BEGIN_NAMESPACE
 class QSpinBox;
@@ -50,18 +53,18 @@ class __HERMITECH_FORMULIB__ CPageSetupDialog : public QDialog
     Q_OBJECT
 
 protected:
-	QSpinBox *leftEdit, *topEdit, *rightEdit, *bottomEdit, *linespacingEdit;
+    QSpinBox *leftEdit, *topEdit, *rightEdit, *bottomEdit, *linespacingEdit;
 
 public:
-	CPageSetupDialog( RectFde rcIndents, RealFde linespacing, QWidget *parent );
+    CPageSetupDialog( RectFde rcIndents, RealFde linespacing, QWidget *parent );
     ~CPageSetupDialog();
 
-	RectFde indents();
-	RealFde lineSpacing();
+    RectFde indents();
+    RealFde lineSpacing();
 
 public slots:
-	void pageSetup();
-	virtual void accept();
+    void pageSetup();
+    virtual void accept();
 };
 
 #endif

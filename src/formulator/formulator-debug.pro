@@ -10,11 +10,11 @@ CONFIG += debug
 DEFINES += _DEBUG FML_STATIC_LINK QT_SVG_LIB QT_NETWORK_LIB
 INCLUDEPATH += ../../include
 DEPENDPATH +=			\
-	../hutils/			\
-	../hmath/hmathbs/	\
-	../hmath/hmathast/	\
-	./fmlcore/			\
-	./fmlide/
+    ../hutils/			\
+    ../hmath/hmathbs/	\
+    ../hmath/hmathast/	\
+    ./fmlcore/			\
+    ./fmlide/
 MOC_DIR += ./GeneratedFiles/debug
 OBJECTS_DIR += ../../int/debug/formulator
 UI_DIR += ./GeneratedFiles
@@ -22,3 +22,6 @@ RCC_DIR += ./GeneratedFiles
 
 #Include file(s)
 include(formulator.pri)
+
+QT += printsupport
+DEFINES += NOMINMAX
